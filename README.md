@@ -2,19 +2,19 @@
 The dataset used for the project is the Credit Risk Prediction. In this dataset, the company wants to predict who might default on a consumer loan product. It has a total of thirteen features, one of which is the target feature. Of these, six of them are numeric, six of them are categorical and one of them is target feature binary.
 The features are as follows;
 
-* Id, which is a numerical value, is used to keep the order of the consumers. Each user has a unique id value.
-* Income represents the annual income of the consumers. It is a numerical value.
-* Age represents the ages of consumers. It is a numerical value.
-* Experience, which is a numerical value, indicates the experiences of consumers in years.
-* Married, a categorical value, is used to keep whether consumers are married or not. There are two categories: single or married. In this dataset, 90% of the consumers are categorized as single and 10% as married.
-* House Ownership keeps whether consumers own a home. It is a categorical value and there are three categories. These categories are rented, owned and no rent & no own. In this dataset, 92% of the consumers are categorized as rented, 5% as owned and 3% as no rent & no own.
-* Car Ownership keeps whether consumers own a car. It is a categorical value and there are two categories, yes and no. 30% of the consumers are categorized as yes and 70% as no.
-* Profession is the area of expertise of the consumers. It is a categorical value.
-* City, which is a categorical value, is the city where consumers live.
-* State, which is a categorical value, is the state where consumers live.
-* Current Job Years represents the years in which consumers are in their current job. It is a numerical value.
-* Current House Years represents the number of years consumers have been in their current residence. It is a numerical value.
-* Risk Flag is a target attribute. It consists of binary values.
+* __Id__, which is a numerical value, is used to keep the order of the consumers. Each user has a unique id value.
+* __Income__ represents the annual income of the consumers. It is a numerical value.
+* __Age__ represents the ages of consumers. It is a numerical value.
+* __Experience__, which is a numerical value, indicates the experiences of consumers in years.
+* __Married__, a categorical value, is used to keep whether consumers are married or not. There are two categories: single or married. In this dataset, 90% of the consumers are categorized as single and 10% as married.
+* __House Ownership__ keeps whether consumers own a home. It is a categorical value and there are three categories. These categories are rented, owned and no rent & no own. In this dataset, 92% of the consumers are categorized as rented, 5% as owned and 3% as no rent & no own.
+* __Car Ownership__ keeps whether consumers own a car. It is a categorical value and there are two categories, yes and no. 30% of the consumers are categorized as yes and 70% as no.
+* __Profession__ is the area of expertise of the consumers. It is a categorical value.
+* __City__, which is a categorical value, is the city where consumers live.
+* __State__, which is a categorical value, is the state where consumers live.
+* __Current Job Years__ represents the years in which consumers are in their current job. It is a numerical value.
+* __Current House Years__ represents the number of years consumers have been in their current residence. It is a numerical value.
+* __Risk Flag__ is a target attribute. It consists of binary values.
 
 ## Data Preprocess and Algorithms
 ### Missing Values
