@@ -1,47 +1,49 @@
 # Credit-Risk-Prediction
 The dataset used for the project is the Credit Risk Prediction. In this dataset, the company wants to predict who might default on a consumer loan product. It has a total of thirteen features, one of which is the target feature. Of these, six of them are numeric, six of them are categorical and one of them is target feature binary.
 The features are as follows;
-● Id, which is a numerical value, is used to keep the order of the consumers. Each user has a unique id value.
-● Income represents the annual income of the consumers. It is a numerical value.
-● Age represents the ages of consumers. It is a numerical value.
-● Experience, which is a numerical value, indicates the experiences of consumers in years.
-● Married, a categorical value, is used to keep whether consumers are married or not. There are two categories: single or married. In this dataset, 90% of the consumers are categorized as single and 10% as married.
-● House Ownership keeps whether consumers own a home. It is a categorical value and there are three categories. These categories are rented, owned and no rent & no own. In this dataset, 92% of the consumers are categorized as rented, 5% as owned and 3% as no rent & no own.
-● Car Ownership keeps whether consumers own a car. It is a categorical value and there are two categories, yes and no. 30% of the consumers are categorized as yes and 70% as no.
-● Profession is the area of expertise of the consumers. It is a categorical value.
-● City, which is a categorical value, is the city where consumers live.
-● State, which is a categorical value, is the state where consumers live.
-● Current Job Years represents the years in which consumers are in their current job. It is a numerical value.
-● Current House Years represents the number of years consumers have been in their current residence. It is a numerical value.
-● Risk Flag is a target attribute. It consists of binary values.
 
-# Data Preprocess and Algorithms
-## Missing Values
+* Id, which is a numerical value, is used to keep the order of the consumers. Each user has a unique id value.
+* Income represents the annual income of the consumers. It is a numerical value.
+* Age represents the ages of consumers. It is a numerical value.
+* Experience, which is a numerical value, indicates the experiences of consumers in years.
+* Married, a categorical value, is used to keep whether consumers are married or not. There are two categories: single or married. In this dataset, 90% of the consumers are categorized as single and 10% as married.
+* House Ownership keeps whether consumers own a home. It is a categorical value and there are three categories. These categories are rented, owned and no rent & no own. In this dataset, 92% of the consumers are categorized as rented, 5% as owned and 3% as no rent & no own.
+* Car Ownership keeps whether consumers own a car. It is a categorical value and there are two categories, yes and no. 30% of the consumers are categorized as yes and 70% as no.
+* Profession is the area of expertise of the consumers. It is a categorical value.
+* City, which is a categorical value, is the city where consumers live.
+* State, which is a categorical value, is the state where consumers live.
+* Current Job Years represents the years in which consumers are in their current job. It is a numerical value.
+* Current House Years represents the number of years consumers have been in their current residence. It is a numerical value.
+* Risk Flag is a target attribute. It consists of binary values.
+
+## Data Preprocess and Algorithms
+### Missing Values
 While checking whether there is missing data in the rows of our data, it is seen that the data of all the attributes are complete.
 
-## Distribution in Dataset
+### Distribution in Dataset
 In order to apply models on this used dataset and make estimates, first of all, the data set should be processed. First of all, an uneven distribution was observed in the risk flag, which is the target feature in the data set. There are 221004 samples from “0” values and 30996 samples from “1” values belonging to the risk flag.
 
 Considering the possibility that this will cause a problem in the future, it was decided to create two different data sets. In fact, the only difference between the two data sets created is the number of samples used. There is no change in the sample number of the first data set, but under-sampling was done in the second data set. In the under-sampling data set, firstly the number of the value of the target attribute "1" was determined, it was randomly taken from the value "0" as much as the detected number. Then, the two arrays were combined and turned into a dataframe. Samples were shuffled as a final process.
 
 Before the model development process, some attributes that were expected not to affect the classification were dropped from the dataset. Since the Id attribute will be ineffective in classifying, it has been dropped. State and City attributes have been dropped from the dataset because they have too many unique values and have no effect on classification. When trying to convert these attributes to dummy attributes, it is thought that it will slow down the algorithms and have a negative effect on accuracy as they have too many unique values.
 
-## Outlier Detection
+### Outlier Detection
 A data point that varies greatly from other observations is referred to as an outlier. At the stage of checking whether there is an outlier value in a data set, there should not be any missing value first. Boxplots are preferred for outlier detection processes. Boxplots are often used to determine outliers on numerical values. Boxplots contain the quartiles and IQR (interquartile range) values of an attribute in the dataset. The points outside of whiskers in the boxplot represent outlier values. Boxplots were created with the attributes of Income, Age, Current House Years and Current Job Years in order to check whether there is an outlier value in this dataset. These attributes are chosen because they have numerical values. No outlier value was reached in the boxplots formed.
 
-## Transformation of Features
+### Transformation of Features
 Each value in the data set is of a different type, so each variable must be converted to a common type before applying the model.
 Preprocess made in this direction is the transformation of categorical data. First of all, "married" and "car_ownership" features have been converted into binary. These two variables are not converted to dummy variables because otherwise, they fall into a dummy trap. The remaining "house_ownership" and "profession" are converted to dummy variables. Thus, it appears as new features in the dataset.
 
 The last conversion was applied to numerical values. Numerical values are indifferent value ranges, so normalization was applied and each was drawn between 1-0.
 
-## Classification Models
+### Classification Models
 Preprocess operations have been performed for both data sets and the next step is the algorithm selection. The algorithm chosen first is the K-Nearest Neighbor (KNN). KNN, both the classification and regression algorithm, makes predictions based on the distance between the features of each sample. For the new sample to be estimated, the operation is performed with the distance calculation formula selected, which is Minkowski, Euclidean or Manhattan, with each sample in the existing dataset. Afterwards, the closest neighbors as many as the given number of "k" are found and the estimation process is performed.
 
 The second algorithm chosen for classification is the Naive Bayes Classifier. The Naive Bayes Classifier is based on the Bayes theorem. It is a lazy algorithm that can run on unbalanced datasets. The way the algorithm works calculates the probability of each state for an element and classifies it according to the one with the highest probability value. With only a small amount of training data, this algorithm performs admirably.
 
 Another algorithm chosen is the Decision Tree Classifier. This algorithm can also be used when both the features that define the data set and the target feature are categorical and continuous values. Decision Tree structure, which starts with the feature that best parses the dataset in the training phase, is put on the first node and continues to form by branching. Thus, the features selected for prediction form nodes. In the classical tree structure logic, the samples passed through the nodes are estimated by reaching the leaves.
 
+## Models and Classification
 ### Train - Test Models and Results
 All three models were tested on the two datasets we have. First of all, to create train and test datasets, the datasets were divided into %90 train data and %10 test data with the help of a method in the sklearn library called Train-Test Split. In order to execute the models with different features and to achieve the best results, we determined some features of the models and ran each model according to these features. Four different neighbors for the KNN model, two types and eight different tree depths were determined for the Decision Tree, and the models were run with these parameters. The highest accuracy from these trials was determined. The model features with the highest accuracy were recorded and the training times of each model were calculated. A classification report was created for each model, and as a result, the best models were found on each dataset. Since all three models were executed on two datasets, six different results were obtained. 
 
